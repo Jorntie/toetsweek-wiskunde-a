@@ -134,7 +134,7 @@ dl.begrippen dt:first-child { margin-top: 0; }
 dl.begrippen dd { margin: 2px 0 0; }
 .waar { font-weight: 400; font-size: 13px; color: var(--accent); text-decoration: none; margin-left: 6px; }
 .note { border-radius: 12px; padding: 10px 12px; margin: 12px 0; border-left: 4px solid var(--accent); background: var(--accent-soft); }
-.note b { display: block; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; }
+.note > b:first-child { display: block; font-size: 13px; text-transform: uppercase; letter-spacing: .04em; }
 .note.let { border-color: var(--bad); background: var(--bad-soft); }
 .note.ezel { border-color: var(--geel); background: color-mix(in srgb, var(--geel) 30%, var(--card)); }
 .formule { text-align: center; font-weight: 700; font-size: 1.08rem; background: var(--card); border: 1.5px solid var(--accent); border-radius: 12px; padding: 12px; margin: 12px 0; }
@@ -154,7 +154,7 @@ ol.stappen li { margin: 6px 0; }
 .uitleg { border-left: 4px solid var(--accent); background: var(--accent-soft); padding: 10px 12px; border-radius: 0 12px 12px 0; margin: 14px 0; }
 .uitleg.ok { border-color: var(--good); }
 .uitleg.nok { border-color: var(--bad); }
-.uitleg > b { display: block; }
+.uitleg > b:first-child { display: block; }
 .antw { margin: 4px 0; }
 .invoer { display: flex; gap: 8px; align-items: center; }
 .invoer input, .zoek, textarea {

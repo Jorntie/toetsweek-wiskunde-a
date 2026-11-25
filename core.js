@@ -193,7 +193,7 @@
         ${(o.kern || []).length ? tegel(`#/leer/${o.id}`, "📖", "Leren", st.l[o.id] ? "gelezen ✓" : "samenvatting") : ""}
         ${o._kaarten.length ? tegel(`#/kaart/${o.id}`, "🃏", "Flitskaarten", `${kg}/${o._kaarten.length} gekend`) : ""}
         ${n("v") ? tegel(`#/quiz/${o.id}/v`, "✅", "Quiz", `${g("v")}/${n("v")} goed`) : ""}
-        ${n("r") ? tegel(`#/quiz/${o.id}/r`, "🧮", "Rekenen", `${g("r")}/${n("r")} goed`) : ""}
+        ${n("r") ? tegel(`#/quiz/${o.id}/r`, S.vak.rekenIcoon || "🧮", esc(S.vak.rekenNaam || "Rekenen"), `${g("r")}/${n("r")} goed`) : ""}
         ${n("o") ? tegel(`#/quiz/${o.id}/o`, "🧩", "Oefenen", `${g("o")}/${n("o")} goed`) : ""}
         ${n("p") ? tegel(`#/quiz/${o.id}/p`, "✍️", "Open vragen", `${g("p")}/${n("p")} goed`) : ""}
         ${(o.widgets || []).map((w) => tegel(`#/doe/${o.id}/${w}`, (S.widgets[w] || {}).icoon || "🔬", esc((S.widgets[w] || {}).titel || w), st.w[w] ? "gedaan ✓" : "interactief")).join("")}
@@ -492,7 +492,7 @@
       app.innerHTML = `
         <a class="crumb" href="${terug}">← Stoppen</a>
         <div class="pl"><span>${esc(titel)}</span><span>${i + 1}/${items.length}</span></div>${bar(i, items.length)}
-        <div class="bron">${esc(x.o.nr ? x.o.nr + " · " : "")}${esc(x.o.titel)} <span class="soort">${SOORT[x.t]}</span></div>
+        <div class="bron">${esc(x.o.nr ? x.o.nr + " · " : "")}${esc(x.o.titel)} <span class="soort">${x.t === "r" && S.vak.rekenNaam ? esc(S.vak.rekenNaam.toLowerCase()) : SOORT[x.t]}</span></div>
         <div id="item"></div><div id="na"></div>`;
       RENDER[x.t]($("item"), x, (juist, uitleg, kop) => {
         noteer(x, juist);
